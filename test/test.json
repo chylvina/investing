@@ -1,0 +1,39 @@
+{
+  "id": "ce122714-74d7-4ca8-b722-21e0e7690c47",
+  "model": "sonar-reasoning-pro",
+  "created": 1738922595,
+  "usage": {
+    "prompt_tokens": 55,
+    "completion_tokens": 615,
+    "total_tokens": 670,
+    "citation_tokens": 5493,
+    "num_search_queries": 3
+  },
+  "citations": [
+    "https://wap.eastmoney.com/a/202502073313224118.html",
+    "https://finance.sina.com.cn/tech/roll/2025-01-22/doc-inefvzcw8765222.shtml",
+    "https://www.163.com/dy/article/JNKG58CC0553O7RC.html",
+    "https://www.163.com/dy/article/JNQA5TP00519QIKK.html",
+    "https://news.cnyes.com/news/id/5844667",
+    "http://vip.stock.finance.sina.com.cn/corp/view/vFD_FinancialGuideLineHistory.php?stockid=000158&typecode=financialratios70",
+    "https://www.163.com/dy/article/JNQ9GTPK0519QIKK.html",
+    "https://www.163.com/dy/article/JMJ8HI2A0539ARRF.html",
+    "https://www.163.com/dy/article/JNQA60QI0519QIKK.html",
+    "https://money.163.com/keywords/6/6/6d6a6f6e4fe1606f/1.html"
+  ],
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>\n好的，我需要帮用户分析常山北明过去一个月的新闻和财报，并根据价值投资标准打分。首先，我需要收集相关的信息。\n\n根据提供的搜索结果，常山北明最近的新闻主要集中在股价波动和财务表现上。例如，2月7日鸿蒙概念股拉升，常山北明涨停，主力资金流入显著[1][4][7][9]。但另一方面，公司2024年业绩预告显示净利润预计亏损5.8亿至7亿，同比大幅下降[2][5][8]。此外，三季报显示营收增长但净利润亏损扩大[3]。\n\n接下来，按照价值投资的标准评估。价值投资通常关注公司的盈利能力、财务状况、行业地位和管理层等因素。常山北明虽然近期股价上涨可能受市场热点影响，但财务表现不佳，连续亏损且毛利率下滑，资产置换带来的负面影响也较大。负债率高达66.7%[3]，财务风险较高。尽管有政府补助等非经常性损益，但不足以扭转亏损局面。\n\n考虑到这些因素，公司在盈利能力、财务健康和稳定性方面得分较低。虽然行业前景可能因鸿蒙概念带来短期利好，但长期价值投资需谨慎。因此，综合评分应在较低区间。\n</think>\n\n常山北明（000158）过去一个月关键信息汇总：  \n1. **股价表现**：  \n   - 2月7日因鸿蒙概念涨停（+10.01%至22.42元），主力资金单日净流入9.51亿元[1][4][7]  \n   - 1月27日收盘下跌5.17%，主力资金净流出1.43亿元[3]  \n\n2. **财务数据**：  \n   - **2024年业绩预告**：归母净利润预亏5.8-7亿元（同比扩大503%-627%），扣非净利润预亏6.5-7.7亿元[2][5][8]  \n   - **亏损原因**：软件业务毛利率下滑、资产置换导致补偿金支出、商誉减值计提增加[2][8]  \n   - **三季报**：营收49.1亿元（+5.6%），归母净利润-2.85亿元（同比降118%）[3]  \n\n3. **经营风险**：  \n   - 负债率66.7%，财务费用达1.79亿元（2024Q3）[3]  \n   - 政府补助减少导致非经常性损益同比下降63%[2]  \n\n**价值投资评分依据**：  \n- **盈利能力**：连续亏损且幅度扩大（扣分项）❌  \n- **成长性**：软件业务收入增长但毛利率承压（中性）➖  \n- **财务健康**：高负债率与现金流压力（扣分项）❌  \n- **行业前景**：鸿蒙生态概念带来短期催化（加分项）✅  \n\ninvesting score: 32"
+      },
+      "delta": {
+        "role": "assistant",
+        "content": ""
+      }
+    }
+  ]
+}
