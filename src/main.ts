@@ -1,4 +1,6 @@
 import config from 'config';
+import fs from 'fs/promises';
+import path from 'path';
 
 interface Message {
   role: 'system' | 'user';
@@ -66,6 +68,23 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
   try {
     const response = await fetch('https://api.perplexity.ai/chat/completions', options);
     const data: ApiResponse = await response.json();
+    
+    // 保存响应数据到本地文件
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const filename = `perplexity-response-${timestamp}.json`;
+    const outputDir = path.join(process.cwd(), 'responses');
+    
+    // 确保输出目录存在
+    await fs.mkdir(outputDir, { recursive: true });
+    
+    // 将数据写入文件
+    await fs.writeFile(
+      path.join(outputDir, filename),
+      JSON.stringify(data, null, 2),
+      'utf-8'
+    );
+    
+    console.log(`响应数据已保存到: ${filename}`);
     console.log(data.choices);
     return data;
   } catch (error) {

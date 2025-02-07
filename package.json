@@ -1,7 +1,14 @@
 {
+  "scripts": {
+    "build": "./node_modules/typescript/bin/tsc",
+    "start": "npm build && node ./src/main.js"
+  },
   "dependencies": {
     "@types/config": "^3.3.5",
     "config": "^3.3.12",
     "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1"
   }
 }
