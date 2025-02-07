@@ -72,7 +72,7 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
     // 保存响应数据到本地文件
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const filename = `perplexity-response-${timestamp}.json`;
-    const outputDir = path.join(process.cwd(), 'responses');
+    const outputDir = path.join(process.cwd(), 'tmp');
     
     // 确保输出目录存在
     await fs.mkdir(outputDir, { recursive: true });
@@ -85,7 +85,6 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
     );
     
     console.log(`响应数据已保存到: ${filename}`);
-    console.log(data.choices);
     return data;
   } catch (error) {
     throw error;
