@@ -66,6 +66,7 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
   try {
     const response = await fetch('https://api.perplexity.ai/chat/completions', options);
     const data: ApiResponse = await response.json();
+    console.log(data.choices);
     return data;
   } catch (error) {
     throw error;
@@ -73,6 +74,6 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
 }
 
 // 使用示例:
-// queryPerplexity('How many stars are there in our galaxy?')
-//   .then(response => console.log(response))
-//   .catch(error => console.error(error));
+queryPerplexity('帮我搜索常山北明的过去一个月的新闻和财报，并且根据价值投资标准打分(满分100)')
+   .then(response => console.log(response))
+   .catch(error => console.error(error));

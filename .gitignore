@@ -1,4 +1,5 @@
 src/*.js
+config/prod.json
 
 # Logs
 logs
