@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc",
-    "start": "npm run build && node ./src/main.js"
+    "start": "npm run build && NODE_ENV=prod node ./src/main.js"
   },
   "dependencies": {
     "@types/config": "^3.3.5",
