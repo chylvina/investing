@@ -92,6 +92,10 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
 }
 
 // 使用示例:
+<<<<<<< HEAD
 queryPerplexity('帮我搜索常山北明的过去一个月的新闻和财报，并且根据价值投资标准打分(满分100)，打分的结果格式为 investing score: {$score}，其中 score 为分数(0-100)，并放在最后面。')
+=======
+queryPerplexity('帮我搜索常山北明的过去一个月的新闻和财报，并且根据价值投资标准打分(满分100)，打分的结果格式为 investing score: {$score}')
+>>>>>>> 5a8ffbb (merged)
    .then(response => console.log(response))
    .catch(error => console.error(error));
