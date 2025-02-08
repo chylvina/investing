@@ -118,17 +118,17 @@ async function processQuery() {
     // 并发处理每个批次中的股票
     const promises = batch.map(async (stock: any) => {
       try {
-        const question = `帮我搜索${stock.name}(${stock.code})的过去一个月的新闻和财报，并且根据价值投资标准打分(满分100)，打分的结果格式为 investing score: {$score}，其中 score 为分数(0-100)，并放在最后面。`;
-        const result = await queryPerplexity(question, stock.code);
+        const question = `帮我搜索${stock.name}(${stock.ACode})的过去一个月的新闻和财报，并且根据价值投资标准打分(满分100)，打分的结果格式为 investing score: {$score}，其中 score 为分数(0-100)，并放在最后面。`;
+        const result = await queryPerplexity(question, stock.ACode);
         return {
-          code: stock.code,
+          code: stock.ACode,
           name: stock.name,
           result
         };
       } catch (error: any) {
-        console.error(`处理 ${stock.name}(${stock.code}) 时出错:`, error);
+        console.error(`处理 ${stock.name}(${stock.ACode}) 时出错:`, error);
         return {
-          code: stock.code,
+          code: stock.ACode,
           name: stock.name,
           error: error.message
         };
