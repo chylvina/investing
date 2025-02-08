@@ -81,12 +81,15 @@ async function queryPerplexity(question: string, stockCode: string): Promise<Api
     // 确保输出目录存在
     await fs.mkdir(outputDir, { recursive: true });
     
+    let outputPath = path.join(outputDir, filename);
+
     // 将数据写入文件
     await fs.writeFile(
-      path.join(outputDir, filename),
+      outputPath,
       JSON.stringify(data, null, 2),
       'utf-8'
     );
+    console.log(`分析结果已保存到: ${outputPath}`);
     
     return data;
   } catch (error) {
@@ -98,7 +101,7 @@ async function processQuery() {
   let output = [];
   
   // 从本地加载 GPLIST.json
-  const gplist = JSON.parse(await fs.readFile(path.join(process.cwd(), 'assets/test.json'), 'utf-8'));
+  const gplist = JSON.parse(await fs.readFile(path.join(process.cwd(), 'assets/GPLIST.json'), 'utf-8'));
   
   // 定义批处理大小和延迟时间
   const BATCH_SIZE = 2;
