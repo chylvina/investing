@@ -1,0 +1,42 @@
+[
+    {
+      "ACode": 600000,
+      "BCode": "-",
+      "name": "浦发银行",
+      "extName": "浦发银行",
+      "enName": "\"Shanghai Pudong Development Bank Co.",
+      "date": "Ltd.\""
+    },
+    {
+      "ACode": 600004,
+      "BCode": "-",
+      "name": "白云机场",
+      "extName": "白云机场",
+      "enName": "Guangzhou Baiyun International Airport Company Limited",
+      "date": 20030428
+    },
+    {
+      "ACode": 600006,
+      "BCode": "-",
+      "name": "东风股份",
+      "extName": "东风股份",
+      "enName": "\"DONGFENG AUTOMOBILE CO.",
+      "date": "LTD.\""
+    },
+    {
+      "ACode": 600007,
+      "BCode": "-",
+      "name": "中国国贸",
+      "extName": "中国国贸",
+      "enName": "\"China World Trade Center Co.",
+      "date": "Ltd.\""
+    },
+    {
+      "ACode": 600008,
+      "BCode": "-",
+      "name": "首创环保",
+      "extName": "首创环保",
+      "enName": "\"BEIJING CAPITAL ECO-ENVIRONMENT PROTECTION GROUP CO.",
+      "date": "LTD.\""
+    }
+  ]
