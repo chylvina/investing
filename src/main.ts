@@ -31,7 +31,7 @@ interface ApiResponse {
 // 从配置文件读取token
 const PERPLEXITY_TOKEN = config.get<string>('perplexity.token');
 
-async function queryPerplexity(question: string): Promise<ApiResponse> {
+async function queryPerplexity(question: string, stockCode: string): Promise<ApiResponse> {
   const options: RequestInit = {
     method: 'POST',
     headers: {
@@ -70,8 +70,12 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
     const data: ApiResponse = await response.json();
     
     // 保存响应数据到本地文件
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const filename = `perplexity-response-${timestamp}.json`;
+    const timestamp = new Date().toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).replace(/\//g, '-');
+    const filename = `${stockCode}-${timestamp}.json`;
     const outputDir = path.join(process.cwd(), 'tmp');
     
     // 确保输出目录存在
@@ -84,7 +88,6 @@ async function queryPerplexity(question: string): Promise<ApiResponse> {
       'utf-8'
     );
     
-    console.log(`响应数据已保存到: ${filename}`);
     return data;
   } catch (error) {
     throw error;
@@ -95,7 +98,7 @@ async function processQuery() {
   let output = [];
   
   // 从本地加载 GPLIST.json
-  const gplist = JSON.parse(await fs.readFile(path.join(process.cwd(), 'assets/GPLIST.json'), 'utf-8'));
+  const gplist = JSON.parse(await fs.readFile(path.join(process.cwd(), 'assets/test.json'), 'utf-8'));
   
   // 定义批处理大小和延迟时间
   const BATCH_SIZE = 2;
@@ -113,7 +116,7 @@ async function processQuery() {
     const promises = batch.map(async (stock: any) => {
       try {
         const question = `帮我搜索${stock.name}(${stock.code})的过去一个月的新闻和财报，并且根据价值投资标准打分(满分100)，打分的结果格式为 investing score: {$score}，其中 score 为分数(0-100)，并放在最后面。`;
-        const result = await queryPerplexity(question);
+        const result = await queryPerplexity(question, stock.code);
         return {
           code: stock.code,
           name: stock.name,
@@ -140,8 +143,14 @@ async function processQuery() {
   }
 
   // 将结果保存到文件
-  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const timestamp = new Date().toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).replace(/\//g, '-');
   const outputPath = path.join(process.cwd(), 'tmp', `analysis-results-${timestamp}.json`);
   await fs.writeFile(outputPath, JSON.stringify(output, null, 2), 'utf-8');
   console.log(`分析结果已保存到: ${outputPath}`);
 }
+
+processQuery();
